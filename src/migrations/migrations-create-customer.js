@@ -12,10 +12,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       sur_name: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       last_name: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
     });
   },
