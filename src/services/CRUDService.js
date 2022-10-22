@@ -15,8 +15,10 @@ let createNewAccount = async (data) => {
                 id_store: data.idshop,
                 id_type_account: data.idtypeaccount,
             },);
-
-            resolve('Create account successful');
+            let allUser = await db.User.findAll({
+                raw: true
+            })
+            resolve(allUser);
         } catch (e) {
             reject(e);
         }
@@ -89,9 +91,31 @@ let updateCRUD = (data) => {
     })
 }
 
+let deleteCRUDfromService = (userId) =>{
+    return new Promise(async(resolve, reject)=>{
+        try {
+            let user = await db.User.findOne({
+                where: {id: userId}
+            })
+
+            if (user) {
+                await user.destroy();
+            }
+            
+            let allUser = await db.User.findAll({
+                raw: true
+            })
+            resolve(allUser);
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
 module.exports = {
     createNewAccount: createNewAccount,
     getAllUser: getAllUser,
     getUserInfoById: getUserInfoById,
     updateCRUD: updateCRUD,
+    deleteCRUDfromService: deleteCRUDfromService,
 }

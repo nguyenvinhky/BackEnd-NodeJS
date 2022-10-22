@@ -39,7 +39,8 @@
     </style>
 </head>
 <body>
-    get CRUD from Views
+
+    <button class="btnEdit" type="button"><a class="link" href="/crud">Back</a></button>
     <table style="width:100%">
         <tr>
           <td>ID</td>
@@ -59,8 +60,8 @@
               <td><%= dataTable[i].id_store %></td>
               <td><%= dataTable[i].id_type_account %></td>
               <td>
-                <button class="btnEdit" type="button"><a class="link" href="edit-crud?id=<%=dataTable[i].id%>">Edit</a></button>
-                <button class="btnDelete" type="button"><a class="link" href="delete-crud?id=<%=dataTable[i].id%>">Delete</a></button>
+                <button class="btnEdit" type="button"><a class="link" href="/edit-crud?id=<%=dataTable[i].id%>">Edit</a></button>
+                <button class="btnDelete" type="button"><a class="link" href="/delete-crud?id=<%=dataTable[i].id%>">Delete</a></button>
               </td>
             </tr>
          <% } %>
